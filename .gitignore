@@ -1,0 +1,3 @@
+# Project exclude paths
+/rocketmq-with-spring-boot/target/
+.idea/*
