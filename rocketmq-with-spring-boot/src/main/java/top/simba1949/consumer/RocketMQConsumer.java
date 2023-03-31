@@ -6,6 +6,7 @@ import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Service;
 
 /**
+ * 定义消费需要实现 RocketMQListener 接口
  * selectorExpression
  *  - 默认 * ，表示不过滤 tag，消费此 Topic 下所有消息
  *  - 配置 tag ：单个直接 tag 名字，多个使用 || 分割

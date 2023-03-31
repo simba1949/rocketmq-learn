@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("mq")
 public class RocketMQController {
 
+    /**
+     * 配置 RocketMQ 完成后，可以直接注入 RocketMQTemplate 进行发送消息
+     */
     @Autowired
     private RocketMQTemplate rocketMQTemplate;
 
