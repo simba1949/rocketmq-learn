@@ -11,10 +11,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 普通消息
  * @author anthony
  * @date 2023/4/5
  */
-public class CommonApplication {
+public class CommonMsgApplication {
     public static void main(String[] args) throws Exception {
         // 构建生产者
         DefaultMQProducer producer = new DefaultMQProducer();

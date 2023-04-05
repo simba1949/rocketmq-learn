@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @RocketMQMessageListener(topic = "EXAMPLE_TOPIC",
         consumerGroup = "EXAMPLE_CONSUMER_GROUP",
         selectorExpression = "*")
-public class RocketMQConsumer implements RocketMQListener<String> {
+public class CommonMsgConsumer implements RocketMQListener<String> {
 
     @Override
     public void onMessage(String message) {
