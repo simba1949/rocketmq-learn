@@ -45,7 +45,7 @@ public class SequenceMsgApplication {
                     new MessageQueueSelector() {
                         @Override
                         public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
-                            // 根据一个值（例如业务id）选择相同的队列
+                            // 控制具体业务发送消息的顺序，再控制同一订单选择同一个队列，即可保证顺序消费
                             long orderId = (long) arg; // 根据订单id选择发送queue
                             long index = orderId % mqs.size();
                             return mqs.get((int) index);
