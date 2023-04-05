@@ -23,14 +23,15 @@ public class CommonApplication {
         // 启动Producer实例
         producer.start();
         // 构建消息
-        String msg = "sendOneWayMsg";
-        Message message = new Message("EXAMPLE_TOPIC", "EXAMPLE_TAG", msg.getBytes(StandardCharsets.UTF_8));
+        String msg = "Message";
+        String msgKey = "MessageKey"; // message key
+        Message message = new Message("EXAMPLE_TOPIC", "EXAMPLE_TAG", msgKey, msg.getBytes(StandardCharsets.UTF_8));
 
         sendSyncMsg(producer, message); // 发送同步消息
         sendAsyncMsg(producer, message); // 发送异步消息
         sendOneWayMsg(producer, message); // 发送单向消息
 
-        // 关闭生产者
+        // 关闭生产者，会从 Broker 中移除
         producer.shutdown();
     }
 
@@ -42,6 +43,7 @@ public class CommonApplication {
     public static void sendSyncMsg(MQProducer producer,Message message) throws MQBrokerException, RemotingException, InterruptedException, MQClientException {
         // 发送消息
         SendResult sendResult = producer.send(message);
+        System.out.println(sendResult); // 打印响应结果
         // 判断响应结果
         if (sendResult.getSendStatus() == SendStatus.SEND_OK) {
             System.out.println("消息发送成功");
@@ -62,6 +64,7 @@ public class CommonApplication {
         producer.send(message, new SendCallback() {
             @Override
             public void onSuccess(SendResult sendResult) {
+                System.out.println(sendResult); // 打印响应结果
                 // 判断响应结果
                 if (sendResult.getSendStatus() == SendStatus.SEND_OK) {
                     System.out.println("消息发送成功");
