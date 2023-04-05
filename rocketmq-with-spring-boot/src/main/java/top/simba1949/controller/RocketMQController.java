@@ -23,14 +23,15 @@ public class RocketMQController {
     @GetMapping("sendMqNoTag")
     public String sendMqNoTag(){
 
-        rocketMQTemplate.convertAndSend("example_topic", "message no tag");
+        rocketMQTemplate.convertAndSend("EXAMPLE_TOPIC", "message no tag");
 
         return "SUCCESS";
     }
 
     @GetMapping("sendMqWithTag")
     public String sendMqWithTag(){
-        rocketMQTemplate.convertAndSend("example_topic:example_tag", "message with tag");
+
+        rocketMQTemplate.convertAndSend("EXAMPLE_TOPIC:EXAMPLE_TAG", "message with tag");
 
         return "SUCCESS";
     }

@@ -15,8 +15,8 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-@RocketMQMessageListener(topic = "example_topic",
-        consumerGroup = "example_consumer_group",
+@RocketMQMessageListener(topic = "EXAMPLE_TOPIC",
+        consumerGroup = "EXAMPLE_CONSUMER_GROUP",
         selectorExpression = "*")
 public class RocketMQConsumer implements RocketMQListener<String> {
 
