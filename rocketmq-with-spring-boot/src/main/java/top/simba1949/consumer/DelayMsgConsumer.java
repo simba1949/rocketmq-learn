@@ -3,14 +3,14 @@ package top.simba1949.consumer;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 /**
  * @author anthony
  * @date 2023/4/5
  */
 @Slf4j
-@Service
+@Component
 @RocketMQMessageListener(topic = "DELAY_TOPIC",
         consumerGroup = "DELAY_CONSUMER_GROUP",
         selectorExpression = "*")
